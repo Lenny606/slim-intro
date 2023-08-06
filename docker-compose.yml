@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - '8080:80'
+  # mount a local directory that we need inside our Nginx container, folder called src, which is in the same directory as our docker-compose.yml file.
+    volumes:
+      - ./src:/var/www/html
+      # This adds the default.conf to the directory where Nginx looks for configuration files to include.
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+    links:
+      - php-fpm
+  php-fpm:
+    image: php:8-fpm
+    volumes:
+      - ./src:/var/www/html
