@@ -1,0 +1,7 @@
+# link the created routes in index.php
+# https://www.slimframework.com/docs/v4/deployment/deployment.html
+<IfModule mod_rewrite.c>
+   RewriteEngine on
+   RewriteRule ^$ index.php/ [L]
+   RewriteRule (^[^/]*$) index.php/$1 [L]
+</IfModule>
