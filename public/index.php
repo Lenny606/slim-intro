@@ -8,8 +8,9 @@ require __DIR__ . '/../vendor/autoload.php';  //fetches from vendor folder any d
 require __DIR__ . '/../config/db.php'; //dtb
 require __DIR__ . '/../routes/routes.php'; //
 
-$app = AppFactory::create();  //new application
+$app = AppFactory::create();  //new application, static create function
 
+//routes go here between
 $app->get('/', function (Request $request, Response $response, array $args) {
    // $name = $args['name'];
     $response->getBody()->write("Hello");
